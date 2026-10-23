@@ -12,6 +12,7 @@ import crypto from 'node:crypto';
 
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const app=express();
+app.set('trust proxy', 1);
 const db=new Database(path.join(__dirname,'launchforge.sqlite'));
 db.pragma('journal_mode = WAL');
 db.exec(`
