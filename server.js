@@ -717,9 +717,13 @@ button{cursor:pointer;border:0;border-radius:999px;padding:12px 18px;background:
 .about{margin:70px 0;padding:36px;border-radius:24px;background:#171525;border:1px solid #302747}
 footer{padding:25px 0;color:#777d8d;font-size:12px}
 @media(max-width:650px){.features{grid-template-columns:1fr}.intro{padding:60px 0}.about{padding:24px}}`,
-   js: `document.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{button.animate([{transform:'scale(1)'},{transform:'scale(.97)'},{transform:'scale(1)'}],{duration:180})}));` 
+       js: `document.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
+      button.animate(
+        [{transform: 'scale(1)'}, {transform: 'scale(.97)'}, {transform: 'scale(1)'}],
+        {duration: 180}
+      );
+    }));`
   };
-}
 
 function renderHtml(p) {
   const title = String(p.name || 'LaunchForge App')
