@@ -722,27 +722,31 @@ footer{padding:25px 0;color:#777d8d;font-size:12px}
         [{transform: 'scale(1)'}, {transform: 'scale(.97)'}, {transform: 'scale(1)'}],
         {duration: 180}
       );
-    }));`
-  };
+       }));`  
 
 function renderHtml(p) {
   const title = String(p.name || 'LaunchForge App')
     .replace(/[<>&"]/g, '');
 return `<!doctype html>
- 
+function renderHtml(p) {
+  const title = String(p.name || 'LaunchForge App')
+    .replace(/[<>&"]/g, '');
+
+  return `<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>\${title}</title>
-<style>\${p.css || ''}</style>
+<title>${title}</title>
+<style>${p.css || ''}</style>
 </head>
 <body>
-\${p.html || ''}
-<script>\${String(p.js || '').replace(/<\\/script/gi, '<\\\\/script')}</script>
+${p.html || ''}
+<script>${String(p.js || '').replace(/<\/script/gi, '<\\/script')}</script>
 </body>
-</html>\`;
-}
+</html>`;
+} 
+
 
 async function makeZipBuffer(files) {
   const { default: JSZip } = await import('jszip')
