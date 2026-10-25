@@ -779,6 +779,7 @@ app.use((error, req, res, next) => {
 });
 
 const port = Number(process.env.PORT || 3000);
-app.listen(port, () =>
-  console.log(`LaunchForge running on port ${port}`)
-);
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`LaunchForge running on port ${port}`);
+});
