@@ -777,9 +777,8 @@ app.use((error, req, res, next) => {
   console.error(error);
   res.status(500).json({ error: 'Unexpected server error.' });
 });
-
-const port = Number(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`LaunchForge running on port ${port}`);
+  console.log('LaunchForge running on port ' + port);
 });
